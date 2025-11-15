@@ -1,3 +1,4 @@
+// FOR DISPLAYING ALL CATEGORIES
 async function category(){
     let category_container=document.getElementById('category-container')
     let data=await fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
@@ -5,7 +6,7 @@ async function category(){
     let product=products.categories.map(item=>{
         return`
             <div id="category-card">
-            <a href="${item.strCategory}"><img src="${item.strCategoryThumb}" alt="">
+            <a onclick="selectCategory('${item.strCategory}')" href="./meals.html"  ><img src="${item.strCategoryThumb}" alt="">
                 <span class='category-name'>${item.strCategory.toUpperCase()}</span>
             </a>
             </div>
@@ -14,6 +15,13 @@ async function category(){
     category_container.innerHTML=product.join('')
 }
 category()
+
+function selectCategory(categoryname){
+    localStorage.setItem('selectedcategory',categoryname)
+}
+// _______________________________________________________________________________
+
+// FOR SEARCHING A MEAL
 
 async function search() {
     let meals = document.getElementById('meals-container');
@@ -35,15 +43,45 @@ async function search() {
     let product = searchProduct.meals.map(item => {
         return `
             <div id="category-card">
-                <a href="#"><img src="${item.strMealThumb}" alt="image"></a>
-                <p>${item.strCategory}</p>
-                <p>${item.strMeal}</p>
+                <a href="#"><img src="${item.strMealThumb}" alt="image">
+                <p class='para1'>${item.strArea}</p>
+                <p class='para2'>${item.strMeal}</p>
+                <span class='meal-name'>${item.strCategory.toUpperCase()}</span>
+                </a>
             </div>
         `;
     });
 
     meals_products.innerHTML = product.join('');
 }
+
+// ______________________________________________________________
+
+
+// FILTER FOOD BASED ON CATEGORY WHEN CLICK ON CATEGORY
+
+async function loadMeals(){
+    let category=localStorage.getItem('selectedcategory')
+    let prod=document.getElementById('prod')
+    let data=await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
+    let res=await data.json()
+    console.log(res)
+
+    let product=res.meals.map(item =>{
+        return`
+            <div id="category-card">
+            <a href=""><img src="${item.strMealThumb}" alt="">
+                <p id='pname'>${item.strMeal}</p>
+            </a>
+            </div>
+        `
+    })
+    prod.innerHTML=product.join('')
+}
+loadMeals()
+
+// ___________________________________________________________________________
+
 
 
 
