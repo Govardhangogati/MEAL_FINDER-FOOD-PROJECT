@@ -98,14 +98,33 @@ async function meals(){
     let res=await data.json()
     let meal_product=document.getElementById('meal-product')
     console.log(res);
+    
     let product=res.meals.map(item =>{
+        let ingredients=[]
+        for(let i=1;i<20;i++){
+            let ing=item[`strIngredient${i}`]
+            if(ing!=''){
+                ingredients.push(`${ing}`)
+            }
+        }
         return`
             <div id="meal_product_card">
-            <a href=""><div class="img-content" id="img-content"><img src="${item.strMealThumb}" alt="">
-                <div class="text" id="text">
-                    
-                </div>
-                </div>
+            <a href="">
+            <div class="img-content" id="img-content">
+                <img src="${item.strMealThumb}" alt="">
+                <span id="text">
+                    <h1>${item.strMeal}</h1>
+                    <p id="category-text"><strong>CATEGORY: </strong>${item.strCategory.toUpperCase()}</p>
+                    <p><strong>Source: </strong>${item.strSource}</p>
+                    <p><strong>Tags:</strong>${item.strTags}</p>
+                    <div class="ingredients-info"><h2>Ingredients</h2>
+                        <ol id="ingredients">
+                            ${ingredients.map(i => `<li>${i}</li>`).join('')}
+
+                        </ol>
+                    </div>
+                </span>
+            </div>
             </a>
             </div>
         `

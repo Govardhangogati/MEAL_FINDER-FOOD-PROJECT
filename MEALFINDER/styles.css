@@ -182,3 +182,46 @@ a{
     font-weight: bolder;
 }
 
+.meals_details{
+    margin: 60px;
+   
+}
+
+
+#meal_product_card{
+    margin: 40px;
+    display: flex;
+    background-color: white;
+    padding: 50px;
+}
+
+#meal_product_card img{
+    width: 500px;
+    height: 600px;
+}
+
+.img-content{
+    display: flex;
+    gap: 100px;
+}
+#text h1{
+    color: orangered;
+    font-size: 40px;
+    border-bottom: 2px solid orangered;
+    padding-bottom: 10px;
+}
+ol{
+   
+}
+.ingredients-info{
+    font-size: 18px;
+    background-color: orangered;
+    padding: 5px;
+    color: white;
+}
+.ingredients-info #ingredients{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
