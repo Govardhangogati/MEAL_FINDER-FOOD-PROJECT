@@ -70,7 +70,7 @@ async function loadMeals(){
     let product=res.meals.map(item =>{
         return`
             <div id="category-card">
-            <a href=""><img src="${item.strMealThumb}" alt="">
+            <a onclick="loadmealsDetails(${item.idMeal})" href="./meals_details.html"><img src="${item.strMealThumb}" alt="">
                 <p id='pname'>${item.strMeal}</p>
             </a>
             </div>
@@ -78,9 +78,44 @@ async function loadMeals(){
     })
     prod.innerHTML=product.join('')
 }
-loadMeals()
+if(document.getElementById('prod')){
+    loadMeals()
+}
+
+
+function loadmealsDetails(mealId){
+    localStorage.setItem('mealId',mealId)
+}
+
+
 
 // ___________________________________________________________________________
+
+
+async function meals(){
+    let id=localStorage.getItem('mealId')
+    let data=await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+    let res=await data.json()
+    let meal_product=document.getElementById('meal-product')
+    console.log(res);
+    let product=res.meals.map(item =>{
+        return`
+            <div id="meal_product_card">
+            <a href=""><div class="img-content" id="img-content"><img src="${item.strMealThumb}" alt="">
+                <div class="text" id="text">
+                    
+                </div>
+                </div>
+            </a>
+            </div>
+        `
+    })
+    meal_product.innerHTML=product.join('')
+    
+}
+if(document.getElementById('meal-product')){
+    meals()
+}
 
 
 
