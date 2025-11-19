@@ -210,9 +210,7 @@ a{
     border-bottom: 2px solid orangered;
     padding-bottom: 10px;
 }
-ol{
-   
-}
+
 .ingredients-info{
     font-size: 18px;
     background-color: orangered;
@@ -225,3 +223,16 @@ ol{
     gap: 60px;
 }
 
+.meal-text-container{
+    margin: 100px;
+    border: 2px solid orangered;
+    padding: 20px;
+    background-color: rgb(243, 239, 239);
+    color: rgb(107, 104, 104);
+}
+.meal-text-container h1{
+    color: orangered;
+}
+.meal-text-container p{
+    font-size: 18px  
+}

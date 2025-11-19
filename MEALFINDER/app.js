@@ -3,10 +3,12 @@ async function category(){
     let category_container=document.getElementById('category-container')
     let data=await fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
     let products=await data.json()
+    console.log(products);
+    
     let product=products.categories.map(item=>{
         return`
             <div id="category-card">
-            <a onclick="selectCategory('${item.strCategory}')" href="./meals.html"  ><img src="${item.strCategoryThumb}" alt="">
+            <a onclick='selectCategory(${JSON.stringify(item.strCategory)}, ${JSON.stringify(item.strCategoryDescription)})' href="./meals.html"  ><img src="${item.strCategoryThumb}" alt="">
                 <span class='category-name'>${item.strCategory.toUpperCase()}</span>
             </a>
             </div>
@@ -16,8 +18,9 @@ async function category(){
 }
 category()
 
-function selectCategory(categoryname){
-    localStorage.setItem('selectedcategory',categoryname)
+function selectCategory(categoryname,categoryDescription){
+    localStorage.setItem('selectedcategory',categoryname.trim())
+    localStorage.setItem('description',categoryDescription)
 }
 // _______________________________________________________________________________
 
@@ -62,6 +65,11 @@ async function search() {
 
 async function loadMeals(){
     let category=localStorage.getItem('selectedcategory')
+    let description=localStorage.getItem('description')
+    let mealCategory=document.getElementById('mealCategory')
+    let desc=document.getElementById('desc');
+    mealCategory.innerHTML=category
+    desc.innerHTML=description
     let prod=document.getElementById('prod')
     let data=await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
     let res=await data.json()
