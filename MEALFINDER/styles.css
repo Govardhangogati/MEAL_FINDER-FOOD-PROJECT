@@ -2,6 +2,7 @@ body{
     padding: 0;
     margin: 0;
     background-color: whitesmoke;
+    position: relative;
 }
 
 header{
@@ -12,6 +13,9 @@ header{
     display: flex;
     padding: 10px 50px;
     margin: 0;
+}
+#kitchen{
+    color: white;
 }
 .hamburger{
     display: flex;
@@ -235,4 +239,29 @@ a{
 }
 .meal-text-container p{
     font-size: 18px  
+}
+.sidebar{
+    /* display: none; */
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    background-color: white;
+    padding: 20px;
+    width: 180px;
+}
+.activate-sidebar{
+    display: block;
+    /* flex-direction: column */
+}
+.sidebar ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar li{
+    color: rgb(124, 120, 120);
+    
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 1px solid rgb(217, 214, 214);
 }

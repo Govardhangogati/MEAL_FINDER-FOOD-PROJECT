@@ -1,3 +1,29 @@
+async function loadcategories() {
+    let side_list=document.getElementById('side-list')
+    let data=await fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
+    let products=await data.json()
+    let product=products.categories.map(item=>{
+        return`
+            <a onclick='selectCategory(${JSON.stringify(item.strCategory)}, ${JSON.stringify(item.strCategoryDescription)})' href="./meals.html"  >
+                <li>${item.strCategory}</li>
+            </a>
+        `
+    })
+    side_list.innerHTML=product.join('')
+    console.log(side_list)
+    
+}
+loadcategories()
+
+// let hamburger=document.getElementById('hamburger')
+// hamburger.addEventListener('click',()=>{
+//     let sidebar=document.getElementById('sidebar')
+//     sidebar.classList.add('activate-sidebar')
+// })
+
+
+
+
 // FOR DISPLAYING ALL CATEGORIES
 async function category(){
     let category_container=document.getElementById('category-container')
