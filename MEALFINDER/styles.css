@@ -18,6 +18,7 @@ header{
     color: white;
 }
 .hamburger{
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -241,13 +242,14 @@ a{
     font-size: 18px  
 }
 .sidebar{
-    /* display: none; */
+    display: none;
     position: absolute;
     top: 0px;
     right: 20px;
     background-color: white;
     padding: 20px;
     width: 180px;
+    cursor: pointer;
 }
 .activate-sidebar{
     display: block;
@@ -264,4 +266,19 @@ a{
     padding-bottom: 5px;
     padding-top: 5px;
     border-bottom: 1px solid rgb(217, 214, 214);
+}
+.sidebar li:hover{
+    color: orangered;
+}
+
+.catefories-disable{
+    display: flex;
+    justify-content: space-between;
+}
+#cat{
+    font-size: 18px;
+    font-weight: bold;
+}
+#cancel{
+    color: orangered;
 }

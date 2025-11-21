@@ -15,11 +15,11 @@ async function loadcategories() {
 }
 loadcategories()
 
-// let hamburger=document.getElementById('hamburger')
-// hamburger.addEventListener('click',()=>{
-//     let sidebar=document.getElementById('sidebar')
-//     sidebar.classList.add('activate-sidebar')
-// })
+let hamburger=document.getElementById('hamburger')
+hamburger.addEventListener('click',()=>{
+    let sidebar=document.getElementById('sidebar')
+    sidebar.classList.add('activate-sidebar')
+})
 
 
 
@@ -172,7 +172,11 @@ if(document.getElementById('meal-product')){
 
 
 
+let cancel=document.getElementById('cancel');
+cancel.addEventListener('click',()=>{
+    sidebar.classList.remove('activate-sidebar')
 
+})
 
 
 
