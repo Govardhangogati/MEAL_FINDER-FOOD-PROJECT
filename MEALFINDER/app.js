@@ -135,10 +135,25 @@ async function meals(){
     
     let product=res.meals.map(item =>{
         let ingredients=[]
+        let measures=[]
+        let instructions=item.strInstructions.replace(/\d+\.\s*/g, "").replace(/\r/g, "");
+
+        let res=instructions.split('\n')
+        let meal_name=document.getElementById('meal-name');
+        console.log(item.strMeal);
+        meal_name.innerHTML=item.strMeal.toUpperCase()
+        
+
+        
+        
         for(let i=1;i<20;i++){
+            let meas=item[`strMeasure${i}`]
             let ing=item[`strIngredient${i}`]
             if(ing!=''){
                 ingredients.push(`${ing}`)
+            }
+            if(meas!=''&&meas!=' '){
+                measures.push(meas)
             }
         }
         return`
@@ -158,6 +173,30 @@ async function meals(){
                         </ol>
                     </div>
                 </span>
+            </div>
+            <div class="measures-info" id="measures-info">
+                <h2>Measures:</h2>
+                <ul id="measures">
+                    ${measures.map(i=>`
+                        <div id="spoon-gap">
+                        <i id="spoon" class="fa-solid fa-spoon" ></i>${i}
+                        </div>
+                        `).join('')
+                        
+                    }
+                </ul>
+            </div>
+            <div id="instructions">
+                    <h2>Instructions:</h2>
+                    <div id="instr">
+                        ${res.map(i=>i.trim()).filter(i=>i!='').map(i=>`
+                        
+                         <div class="step">   
+                            <i id="check" class="fa-regular fa-square-check"></i>${i}
+                           </div> 
+                        
+                        `).join('')}
+                    </div>
             </div>
             </a>
             </div>
