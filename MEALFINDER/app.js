@@ -72,7 +72,7 @@ async function search() {
     let product = searchProduct.meals.map(item => {
         return `
             <div id="category-card">
-                <a href="#"><img src="${item.strMealThumb}" alt="image">
+                <a onclick="loadmealsDetails(${item.idMeal})" href="./meals_details.html"><img src="${item.strMealThumb}" alt="image">
                 <p class='para1'>${item.strArea}</p>
                 <p class='para2'>${item.strMeal}</p>
                 <span class='meal-name'>${item.strCategory.toUpperCase()}</span>

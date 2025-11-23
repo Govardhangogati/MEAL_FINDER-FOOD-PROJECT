@@ -45,6 +45,12 @@ header a{
     top: 100px;
     left: 500px;
 }
+.text h1{
+    font-size: 40px;
+}
+.text p{
+    font-size: 20px;
+}
 .banner .input-search{
     display: flex;
     align-items: center;
@@ -73,6 +79,13 @@ header a{
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    border: 2px solid white;
+}
+.banner .input-search .search:hover{
+    background-color: white;
+    color: orangered;
+    cursor: pointer;
+    border: 2px solid orangered;
 }
 
 .meals-container{
@@ -328,5 +341,214 @@ a{
     margin: 40px 20px;
     color: white;
 }
+
+
+
+
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    padding: 10px 20px;
+  }
+
+  
+  .banner .text {
+    top: 5%; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 90%; 
+    text-align: center;
+  }
+
+  .banner .text h1 {
+    font-size: 20px; 
+  }
+
+  .banner .text p {
+    font-size: 14px; 
+  }
+
+  .banner img {
+    height: 250px;
+  }
+
+ 
+  .meal, .meals-details, .container {
+    margin: 20px;
+  }
+
+  .prod, .meals-products, .category-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #meal_product_card {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  #meal_product_card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .img-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #text h1 {
+    font-size: 28px;
+  }
+
+  .meal-name {
+    font-size: 16px;
+    padding: 3px 6px;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  header {
+    padding: 10px 40px;
+  }
+
+  
+  .banner .text {
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    text-align: center;
+  }
+  .banner .text h1 {
+    font-size: 28px;
+  }
+  .banner .text p {
+    font-size: 16px;
+  }
+
+  .banner img {
+    height: 350px;
+  }
+
+  .meal, .meals-details, .container {
+    margin: 40px;
+  }
+
+  .prod, .meals-products, .category-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  #meal_product_card {
+    flex-direction: row;
+    padding: 30px;
+  }
+
+  #meal_product_card img {
+    width: 400px;
+    height: 500px;
+  }
+
+  .img-content {
+    flex-direction: row;
+    gap: 50px;
+  }
+
+  #text h1 {
+    font-size: 34px;
+  }
+
+  .meal-name {
+    font-size: 18px;
+    padding: 4px 8px;
+    top: 8px;
+    right: 8px;
+  }
+}
+
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  body {
+    font-size: 18px;
+  }
+
+  header {
+    padding: 15px 60px;
+  }
+
+  .banner .text {
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    text-align: center;
+  }
+
+  .banner .text h1 {
+    font-size: 36px;
+  }
+
+  .banner .text p {
+    font-size: 18px;
+  }
+
+  .banner img {
+    height: 450px;
+  }
+
+  .meal, 
+  .meals-details, 
+  .container {
+    margin: 60px 80px;
+  }
+
+  .prod, 
+  .meals-products, 
+  .category-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  #meal_product_card {
+    flex-direction: row;
+    padding: 40px;
+  }
+
+  #meal_product_card img {
+    width: 450px;
+    height: 550px;
+  }
+
+  .img-content {
+    flex-direction: row;
+    gap: 70px;
+  }
+
+  #text h1 {
+    font-size: 40px;
+  }
+
+  .meal-name {
+    font-size: 20px;
+    padding: 6px 10px;
+    top: 10px;
+    right: 10px;
+  }
+}
+
 
 
