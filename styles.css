@@ -377,7 +377,7 @@ a{
   }
 
  
-  .meal, .meals-details, .container {
+  .meal, .meals_details, .container {
     margin: 20px;
   }
 
@@ -442,7 +442,7 @@ a{
     height: 350px;
   }
 
-  .meal, .meals-details, .container {
+  .meal, .meals_details, .container {
     margin: 40px;
   }
 
@@ -510,7 +510,7 @@ a{
   }
 
   .meal, 
-  .meals-details, 
+  .meals_details, 
   .container {
     margin: 60px 80px;
   }
